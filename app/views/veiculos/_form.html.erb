@@ -52,27 +52,30 @@
 
 <script type="text/javascript">
 
-
-
-
-    //$(document).on('nested:fieldAdded', function(event){
-       
-       //readURL();
-    //})
+    var cont = 0
+    $(document).on('nested:fieldAdded', function(event){
+       cont++
+       readURL();
+    })
 
     function readURL() {
+    
     $('.img-button').change(function(){
       
       button = $(this)
+      image = button.attr('name')
+      
       $('.img_prev').removeClass('hidden');
+      $('.img_prev').addClass('img_prev'+cont)
+      $('.img_prev'+cont).removeClass('img_prev');
       
 
       if (button[0].files[0]) {
         var reader = new FileReader();
-
+        alert(cont)  
         reader.onload = function (e) {
 
-          $('.img_prev').attr('src', e.target.result);
+          $('.img_prev'+cont).attr('src', e.target.result);
         }
       
         reader.readAsDataURL(button[0].files[0]);

@@ -15,7 +15,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos/new
   def new
     @veiculo = Veiculo.new
-    @image = @veiculo.imagems.build
+    
   end
 
   # GET /veiculos/1/edit
